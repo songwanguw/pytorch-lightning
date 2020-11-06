@@ -582,8 +582,8 @@ class ModelCheckpoint(Callback):
 
         if self.verbose:
             rank_zero_info(
-                f"Epoch {epoch:d}, global step {step:d}: {self.monitor} reached {current:0.5f}"
-                f' (best {self.best_model_score:0.5f}), saving model to "{filepath}" as top {k}'
+                f"Epoch {epoch:d}, global step {step:d}: {self.monitor} reached {current.item():0.5f}"
+-               f' (best {self.best_model_score.item():0.5f}), saving model to "{filepath}" as top {k}'
             )
         self._save_model(filepath, trainer, pl_module)
 
